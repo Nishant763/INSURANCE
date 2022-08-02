@@ -20,20 +20,27 @@ export class IcalcShowComponent implements OnInit {
   typeofvehicle:string=''
   type:string=''
   duration:number=0
+  age:number = 0;
   constructor(private router:Router,private activateroute:ActivatedRoute, private planService:PlanService) { }
 
   ngOnInit(): void {
     const ttype=this.activateroute.snapshot.paramMap.get('type')
     const tduration=this.activateroute.snapshot.paramMap.get('duration')
     const ttypeofvehicle=this.activateroute.snapshot.paramMap.get('typeofvehicle')
+    const ageV = this.activateroute.snapshot.paramMap.get('age');
     this.typeofvehicle=String(ttypeofvehicle)
     this.type=String(ttype)
     this.duration=Number(tduration)
-    this.planService.GetPlanCalc(this.typeofvehicle,this.type,this.duration).subscribe((data:Iplan)=>{this.plandata=data})
+    this.age = Number(ageV)
+    this.planService.GetPlanCalc(this.typeofvehicle,this.type,this.duration,this.age).subscribe((data:Iplan)=>{this.plandata=data})
      console.log(this.plandata)
   }
   BuyInsurance(){
-    this.router.navigate(['/login']) 
+    this.router.navigate(['Ibuy']) 
+  }
+
+  back(){
+    this.router.navigate(['Icalc']);
   }
 
 }

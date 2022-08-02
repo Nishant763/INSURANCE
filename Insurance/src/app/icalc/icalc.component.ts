@@ -27,7 +27,7 @@ export class IcalcComponent implements OnInit {
   getPlanCalc(plan:Iplan){
     this.plandata=plan
     console.log(plan)
-    this.router.navigate(['Icalc/:typeofvehicle/:type/:duration', {typeofvehicle:this.plandata.typeofvehicle, type:this.plandata.type, duration:this.plandata.term}])  
+    this.router.navigate(['Icalc/:typeofvehicle/:type/:duration/:age', {typeofvehicle:this.plandata.typeofvehicle, type:this.plandata.type, duration:this.plandata.term,age:this.Age}])  
   }
 
 }

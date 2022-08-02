@@ -34,7 +34,8 @@ export class RenewpolicyComponent implements OnInit {
   }
   addPolicyRenew(){
     console.log("addpolicy started");
-   this.planService.addpolicyRenew(this.plandata,this.policyId).subscribe(()=>{
+   this.planService.addpolicyRenew(this.plandata,this.policyId).subscribe((data)=>{
+    console.log(data);
     alert("Thank you For Renewing Insurance \n you details are saved safely!!!")
     this.router.navigate(['/'])  
    })

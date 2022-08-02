@@ -30,11 +30,11 @@ export class PlanService {
   }
 
   addpolicyRenew(plan:Iplan,policyId:number):Observable<Iplan>{
-    return this.httpClient.post<Iplan>(this.urlrenew+policyId,plan,this.httpOptions).pipe(catchError(this.HandleError))
+    return this.httpClient.put<Iplan>(this.urlrenew+policyId,plan,this.httpOptions).pipe(catchError(this.HandleError))
   }
 
-  GetPlanCalc(typeofvehicle:string,type:string,duration:number):Observable<Iplan>{
-    return this.httpClient.get<Iplan>(this.urlcalc+typeofvehicle+'/'+type+'/'+duration,this.httpOptions).pipe(catchError(this.HandleError))
+  GetPlanCalc(typeofvehicle:string,type:string,duration:number,age:number):Observable<Iplan>{
+    return this.httpClient.get<Iplan>(this.urlcalc+typeofvehicle+'/'+type+'/'+duration+'/'+age,this.httpOptions).pipe(catchError(this.HandleError))
   }
 
   HandleError(error:HttpErrorResponse){

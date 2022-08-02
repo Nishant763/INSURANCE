@@ -17,7 +17,7 @@ import { CustomerService } from '../customer.service';
   login(email:string,pass:string){
     this.mail=email
     this.password=pass
-    if(this.mail=='admin' && this.password=='admin')
+    if(this.mail=='admin@gmail.com' && this.password=='Admin@1234')
     this.router.navigate(['admin']);
     else{
       
@@ -29,4 +29,11 @@ import { CustomerService } from '../customer.service';
   })
     }
   }
+
+  forgetpass(){
+    this.router.navigate(['forget'])
+   }
+   resetpass(){
+    this.router.navigate(['reset/',this.mail])
+   }
 }
