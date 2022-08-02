@@ -13,7 +13,7 @@ import { DatePipe } from '@angular/common';
 export class IclaimComponent implements OnInit {
   reason:string=''
   email:string=''
-  mobile:number=0
+  mobile:string=''
 
   claim:Claim={
     //Id:0,
@@ -32,6 +32,7 @@ export class IclaimComponent implements OnInit {
   ngOnInit(): void {
     const temail=this.activatedroute.snapshot.paramMap.get('email')
     this.email=String(temail)
+
   }
 
 
@@ -42,6 +43,8 @@ export class IclaimComponent implements OnInit {
     //let dt  = this.datePipe.transform(this.claim.ClaimDate,'yyyy-MM-dd');
     //console.log(this.claim)
     //this.claim.ClaimDate= new Date(dt);
+    
+
     this.claimservice.claim(this.claim).subscribe(()=>{
       alert("Ticket Generated") 
       

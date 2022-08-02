@@ -1,6 +1,10 @@
-<div class="container">
-    <h3>Claim History</h3>
-    <div class="jumbotron" style="background-color:darkgrey;">
+<div class="admin">
+    <header>
+        <div class="container" style="background-color:blue;">
+    <h2 style="color:whitesmoke;">Pending Claims</h2>
+</div>
+</header>    
+<div class="jumbotron" style="background-color:darkgrey;">
         <table class="table">
             <thead>
                 <tr>
@@ -8,7 +12,7 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Amount</th>
-                </tr>
+                </tr>   
             </thead>
             <tbody>
                 <tr *ngFor="let obj of cpsObj">
