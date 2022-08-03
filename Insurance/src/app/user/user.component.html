@@ -1,4 +1,9 @@
 <div class="container-0">
+    <header>
+        <div class="headbox" style="background-color:blue;">
+            <h2 style="color:whitesmoke;">Policy Details</h2>
+          </div>
+    </header>
     <div class="container" *ngFor="let dept of customer_vehicle_policy">
         <!--  PolicyNo:number,
     Model:string,
@@ -22,13 +27,13 @@
     <div class="container-3">
             
             <div *ngIf="dept.renewAmount>0" class="next">
-                <button class="claimb" type="submit" (click)="claim()">Claim</button>
+                <button class="btn btn-danger btn-lg" type="submit" (click)="claim()">Claim</button>
             </div>
             <div *ngIf="!(dept.renewAmount>0)" class="next">
                 <div class="claimB">Claim Is Approved</div>
             </div>
             <div class="next">
-                <button class="renewb" type="submit" (click)="renew()">Renew</button>
+                <button class="btn btn-success btn-lg" type="submit" (click)="renew()">Renew</button>
             </div>
         </div>
 </div>

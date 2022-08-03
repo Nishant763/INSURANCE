@@ -1,23 +1,28 @@
+<div class="renew">
 <header>
     <div class="container" style="background-color:blue;">
     <h2 style="color:whitesmoke;">Renew Insurance</h2>
     </div>
 </header>
-<form (ngSubmit)="submit(policyNo,mobileNo,mail)">
+<form (ngSubmit)="submit(policyNo,mobileNo,mail)" #renewForm = "ngForm">
     <div class="container-2" style="margin-top: 1rem;">
         <div class="container-3">
         <div class="mb-3">
-            <input  type="text" class="form-control" id="pnumber" name="pnumber" placeholder="Enter Policy Number" [(ngModel)]="policyNo" #pnumber="ngModel" >
+            <input  type="number" class="form-control" id="pnumber" name="pnumber" placeholder="Enter Policy Number" [(ngModel)]="policyNo" #pnumber="ngModel" required>
+            <div *ngIf="(pnumber.touched || renewForm.submitted) && pnumber.errors?.['required']" style="color:red">*PolicyNo is Required</div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Enter Mobile Number" [(ngModel)]="mobileNo" #mnumber="ngModel" >
+            <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Enter Mobile Number" [(ngModel)]="mobileNo" #mnumber="ngModel" required>
+            <div *ngIf="(mnumber.touched || renewForm.submitted) && mnumber.errors?.['required']" style="color:red">*MobileNo is Required</div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]="mail" #email="ngModel"  >
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]="mail" #email="ngModel" required  >
+            <div *ngIf="(email.touched || renewForm.submitted) && email.errors?.['required']" style="color:red">*Email is Required</div>
           </div>
-    <div class="col-12" style="margin-left:43%;">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+          <div class="col-12" style="margin-left:43%;">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
     </div>
 </div>
 </form>
+</div>

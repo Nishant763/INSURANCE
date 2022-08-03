@@ -1,23 +1,26 @@
-<header>
-    <div class="container" style="background-color:blue;">
-    <h2 style="color:whitesmoke;">Claim</h2>
+<div class="claim">
+  <header>  
+  <div class="container" style="background-color:blue;">
+    <h2 style="color:whitesmoke;">Claim Insurance</h2>
     </div>
-</header>
-<form >
+  </header>
+<form (ngSubmit)="submit(claim)" #claimForm="ngForm">
     <div class="container-2">
         <div class="mb-3">
-            <input type="number" class="form-control" id="pnumber" name="pnumber" placeholder="Enter Policy Number" [(ngModel)]="claim.PolicyId" #pnumber="ngModel">
+            <input type="number" class="form-control" id="pnumber" name="pnumber" placeholder="Enter Policy Number" [(ngModel)]="claim.PolicyId" #pnumber="ngModel" required>
+            <div *ngIf="(pnumber.touched || claimForm.submitted) && pnumber.errors?.['required']" style="color:red">*PolicyNo is Required</div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" id="mnumber" name="mnuber" placeholder="Enter Mobile Number" [(ngModel)]="mobile" #mnumber="ngModel">
+            <input type="text" class="form-control" id="mnumber" name="mnuber" placeholder="Enter Mobile Number" [(ngModel)]="mobile" #mnumber="ngModel" required>
+            <div *ngIf="(mnumber.touched || claimForm.submitted) && mnumber.errors?.['required']" style="color:red">*MobileNo is Required</div>
           </div>
 
           <div class="col-sm-10">
-            <p>Reason To Claim Isurance</p>
+            <p>Please select reason to claim inurance</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="nd" id="nd" value="Natural Disaster" [(ngModel)]="reason" #nd="ngModel">
               <label class="form-check-label" for="gridRadios1">
-                Natural Disaster
+                Natural Disaster    
               </label>
             </div>
             <div class="form-check">
@@ -39,8 +42,9 @@
                 </label>
               </div>
         </div>
-        <div class="col-12" style="margin-left: 46%;">
-            <button type="submit" class="btn btn-primary" (click)="submit(claim)">Submit</button>
+        <div class="col-12" style="margin-left: 48%;">
+            <button type="submit" class="btn btn-success">Submit</button>
           </div>
     </div>
 </form>
+</div>
